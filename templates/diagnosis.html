@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2>Patient Diagnosis Form</h2>
+        <!-- <form action="/diagnosis" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Patient Name" required style="width: 80%; padding: 10px; margin: 10px;"><br>
+                <input type="number" name="age" placeholder="Age" required style="width: 38%; padding: 10px; margin: 10px;">
+                <select name="gender" style="width: 40%; padding: 10px; margin: 10px;">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select><br>
+                <label>Select MRI Scan:</label><br>
+                <input type="file" name="file" accept="image/*" required style="margin: 20px;"><br>
+                <button type="submit" class="btn btn-secondary">Analyze & Predict</button>
+            </form> -->
+        <form action="/diagnosis" method="post" enctype="multipart/form-data">
+          <input
+            type="text"
+            name="name"
+            placeholder="Patient Name"
+            required
+          /><br />
+          <input type="number" name="age" placeholder="Age" required /><br />
+          <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option></select
+          ><br />
+          <input type="file" name="file" required /><br />
+          <button type="submit">Predict & Generate Result</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

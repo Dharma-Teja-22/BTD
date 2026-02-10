@@ -1,0 +1,13 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; margin: 0; }
+.container { width: 80%; margin: auto; padding: 20px; text-align: center; }
+.card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 50px; }
+.btn { padding: 12px 25px; margin: 10px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; font-size: 16px; }
+.btn-primary { background: #2c3e50; color: white; }
+.btn-secondary { background: #3498db; color: white; }
+.result-box { padding: 20px; font-size: 24px; font-weight: bold; margin-top: 20px; border-radius: 5px; }
+.no-tumor { color: #27ae60; border: 2px solid #27ae60; background: #e8f5e9; }
+.has-tumor { color: #c0392b; border: 2px solid #c0392b; background: #f9ebea; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+th { background-color: #2c3e50; color: white; }
+.mri-preview { width: 200px; border-radius: 8px; margin-top: 15px; }

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div class="card">
+            <h2>Analysis Report</h2>
+            <p><strong>Patient:</strong> {{ name }} | <strong>Age:</strong> {{ age }}</p>
+            
+            <hr>
+            
+            <img src="{{ url_for('static', filename='uploads/' + viz_img) }}" style="width: 100%; max-width: 500px; border-radius: 10px; margin: 20px 0;">
+            
+            <div class="result-box {{ 'no-tumor' if result == 'notumor' else 'has-tumor' }}">
+                Final Prediction: {{ 'NO TUMOR DETECTED' if result == 'notumor' else result|upper }}
+            </div>
+            
+            <br>
+            <div style="margin-top: 20px;">
+                <a href="/diagnosis" class="btn btn-secondary">New Diagnosis</a>
+                <a href="/" class="btn btn-primary">Home Screen</a>
+            </div>
+        </div> -->
+      <div class="container">
+        <div class="card">
+          <h1>Diagnosis Report</h1>
+          <p>Patient: <b>{{ name }}</b></p>
+
+          <!-- The visual result from Matplotlib -->
+          <img
+            src="{{ url_for('static', filename='uploads/' + viz_img) }}"
+            style="width: 100%; max-width: 600px; border-radius: 10px"
+          />
+
+          <div
+            class="result-box"
+            style="margin-top:20px; padding:20px; border:3px solid {{ 'green' if result == 'notumor' else 'red' }};"
+          >
+            <h2 style="color: {{ 'green' if result == 'notumor' else 'red' }};">
+              RESULT: {{ result.upper() }}
+            </h2>
+          </div>
+
+          <br />
+          <a href="/diagnosis" class="btn btn-primary">New Analysis</a>
+          <a href="/history" class="btn btn-secondary">View History</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

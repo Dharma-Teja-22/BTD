@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body>
+    <div class="container">
+        <h1>Patient History Records</h1>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>MRI Scan</th>
+                <th>Result</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>{{ record.patient_name }}</td>
+                <td>{{ record.age }}</td>
+                <td><a href="{{ url_for('static', filename='uploads/' + record.image_path) }}" target="_blank">View Image</a></td>
+                <td style="color: {{ 'green' if record.result == 'No Tumor' else 'red' }}; font-weight: bold;">
+                    {{ record.result }}
+                </td>
+                <td>
+    <a href="{{ url_for('static', filename='uploads/' + record.viz_path) }}" target="_blank">View Analysis Plot</a>
+</td>
+<td style="color: {{ 'green' if record.result == 'notumor' else 'red' }}; font-weight: bold;">
+    {{ record.result }}
+</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+</body>
+</html>
