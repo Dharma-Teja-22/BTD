@@ -126,6 +126,7 @@ def diagnosis():
 
 @app.route('/history')
 def history():
+    # Retrieve all records sorted by the newest first
     records = Diagnosis.query.order_by(Diagnosis.timestamp.desc()).all()
     return render_template('history.html', records=records)
 

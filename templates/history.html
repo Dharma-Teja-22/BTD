@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<head>
+    <title>Diagnosis History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 <body>
-    <div class="container">
-        <h1>Patient History Records</h1>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Patient Name</th>
-                <th>Age</th>
-                <th>MRI Scan</th>
-                <th>Result</th>
-            </tr>
-            {% for record in records %}
-            <tr>
-                <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
-                <td>{{ record.patient_name }}</td>
-                <td>{{ record.age }}</td>
-                <td><a href="{{ url_for('static', filename='uploads/' + record.image_path) }}" target="_blank">View Image</a></td>
-                <td style="color: {{ 'green' if record.result == 'No Tumor' else 'red' }}; font-weight: bold;">
-                    {{ record.result }}
-                </td>
-                <td>
-    <a href="{{ url_for('static', filename='uploads/' + record.viz_path) }}" target="_blank">View Analysis Plot</a>
-</td>
-<td style="color: {{ 'green' if record.result == 'notumor' else 'red' }}; font-weight: bold;">
-    {{ record.result }}
-</td>
-            </tr>
-            {% endfor %}
-        </table>
-        <br>
-        <a href="/" class="btn btn-primary">Back to Home</a>
+    <div class="container" style="width: 90%; margin-top: 30px;">
+        <div class="card">
+            <h1>Patient Diagnosis History</h1>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <thead>
+                    <tr style="background-color: #2c3e50; color: white;">
+                        <th style="padding: 12px; border: 1px solid #ddd;">Date</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Patient Name</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Age</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Gender</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Diagnosis</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Analysis Report</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in records %}
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ record.patient_name }}</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ record.age }}</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">{{ record.gender }}</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; color: {{ 'green' if record.result == 'notumor' else 'red' }};">
+                            {{ 'No Tumor' if record.result == 'notumor' else record.result }}
+                        </td>
+                        <!-- CHANGED 'image_path' to 'viz_path' to match your DB model -->
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                            <a href="{{ url_for('static', filename='uploads/' + record.viz_path) }}" target="_blank" class="btn-primary" style="padding: 5px 10px; font-size: 12px; text-decoration: none; border-radius: 3px;">
+                                View Full Chart
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 30px;">
+                <a href="/" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
