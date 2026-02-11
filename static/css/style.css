@@ -11,3 +11,298 @@ table { width: 100%; border-collapse: collapse; margin-top: 20px; background: wh
 th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
 th { background-color: #2c3e50; color: white; }
 .mri-preview { width: 200px; border-radius: 8px; margin-top: 15px; }
+
+/* Base Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Increased Card Dimensions */
+.home-card {
+    width: 1100px; /* Increased Width */
+    height: 550px; /* Increased Height */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures image doesn't leak out of rounded corners */
+}
+
+.split-container {
+    display: flex;
+    height: 100%;
+}
+
+/* Image Column - Filling 100% of space */
+.col-image {
+    flex: 1;
+    height: 100%;
+    padding: 0; /* Remove padding to make image fill entire col */
+}
+
+.hero-full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the entire column area */
+    display: block;
+}
+
+/* Info Column */
+.col-info {
+    flex: 1.2;
+    padding: 60px; /* More space around text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.main-description {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Feature Checklist */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.feature-list li {
+    padding: 10px 0;
+    padding-left: 35px;
+    position: relative;
+    color: #34495e;
+    font-size: 1.05rem;
+}
+
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Buttons */
+.home-button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-start, .btn-history {
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-start {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-start:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.btn-history {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.btn-history:hover {
+    background-color: #1a252f;
+    transform: translateY(-2px);
+}
+
+/* Responsive (Optional) */
+@media (max-width: 1150px) {
+    .home-card {
+        width: 95%;
+        height: auto;
+        flex-direction: column;
+    }
+    .col-image {
+        height: 300px;
+    }
+}
+
+/* Diagnosis Page Specific Styling */
+.diagnosis-card {
+    width: 600px; /* Compact but spacious */
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.form-header h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
+.form-header p {
+    color: #95a5a6;
+    margin-top: 5px;
+}
+
+/* Form Layout */
+.styled-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.styled-form label {
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.styled-form input[type="text"],
+.styled-form input[type="number"],
+.styled-form select {
+    padding: 12px 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.styled-form input:focus, .styled-form select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-row.split {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row.split .form-group {
+    flex: 1;
+}
+
+/* Styled File Upload Area */
+.file-drop-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border: 2px dashed #dcdde1;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.file-drop-area:hover {
+    border-color: #3498db;
+    background-color: #f1f7ff;
+}
+
+.fake-btn {
+    flex-shrink: 0;
+    background-color: #3498db;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: 15px;
+}
+
+.file-msg {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.help-text {
+    font-size: 0.8rem;
+    color: #bdc3c7;
+    margin-top: 5px;
+}
+
+/* Actions */
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-submit {
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    text-align: center;
+    text-decoration: none;
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+.btn-back:hover {
+    color: #7f8c8d;
+}
+

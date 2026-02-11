@@ -1,15 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Brain Tumor Detection</title>
+</head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Brain Tumor Detection System</h1>
-            <p>Welcome! This AI-powered tool helps medical professionals identify brain tumors (Glioma, Meningioma, Pituitary) from MRI scans.</p>
-            <hr>
-            <div style="margin-top: 30px;">
-                <a href="/diagnosis" class="btn btn-secondary">Start Diagnosis</a>
-                <a href="/history" class="btn btn-primary">Past History</a>
+    <div class="main-wrapper">
+        <div class="home-card">
+            <div class="split-container">
+                
+                <!-- Left Column: Image (No padding) -->
+                <div class="col-image">
+                    <img src="{{ url_for('static', filename='assests/logo2.png') }}" alt="Brain Analysis" class="hero-full-img">
+                </div>
+
+                <!-- Right Column: Information -->
+                <div class="col-info">
+                    <h1 class="main-title">Brain Tumor Detection System</h1>
+                    <p class="main-description">
+                        This AI-powered diagnostic tool utilizes advanced Deep Learning (Xception Network) 
+                        to analyze MRI scans with high precision.
+                    </p>
+                    
+                    <ul class="feature-list">
+                        <li>Detects Glioma, Meningioma, and Pituitary tumors.</li>
+                        <li>Provides probability-based visualization reports.</li>
+                        <li>Securely stores patient history for clinical review.</li>
+                    </ul>
+                    
+                    <div class="home-button-group">
+                        <a href="/diagnosis" class="btn-start">Start New Diagnosis</a>
+                        <a href="/history" class="btn-history">View Past History</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

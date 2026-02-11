@@ -8,3 +8,4 @@ flask_sqlalchemy
 
 py 10.0.0
 pip install tensorflow==2.16.1 tf-keras matplotlib pillow flask-sqlalchemy
+py -3.10 -m venv venv310
