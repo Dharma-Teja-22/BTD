@@ -296,13 +296,37 @@ body {
 }
 
 .btn-back {
+    background-color: #c0392b;
+    padding: 8px;
     text-align: center;
     text-decoration: none;
-    color: #95a5a6;
-    font-size: 0.9rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .btn-back:hover {
-    color: #7f8c8d;
+    color: white;
+}
+
+
+
+.card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.card thead,
+.card tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.card tbody {
+    display: block;
+    max-height: 320px;   /* Adjust height */
+    overflow-y: auto;
 }
 
